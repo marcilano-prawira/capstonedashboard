@@ -23,7 +23,7 @@ df_uang = load_data_keuangan()
 df_saham = load_data_saham()
 
 # SIDEBAR NAVIGASI
-st.sidebar.title("Vestlytics (Dashboard Analisis dataset) ")
+st.sidebar.title("Vestlytics")
 pilihan_menu = st.sidebar.radio(
     "Pilih Halaman Analisis:",
     ("Beranda", "Profil Keuangan", "Saham LQ45", "Insight Terintegrasi")
@@ -36,7 +36,7 @@ st.sidebar.info("Sistem ini terhubung langsung dengan dataset Keuangan (3.000 us
 # KONTEN HALAMAN BERDASARKAN PILIHAN
 # HALAMAN BERANDA
 if pilihan_menu == "Beranda":
-    st.title("Sistem Analisis Profil Risiko & Peluang Investasi")
+    st.title("Dashboard hasil Analisis dataset")
     st.markdown("""
     
     Dashboard ini mengintegrasikan dua analisis utama:
