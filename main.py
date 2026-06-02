@@ -143,10 +143,23 @@ elif pilihan_menu == "Saham LQ45":
     st.plotly_chart(fig_line, use_container_width=True)
     
     st.subheader(f"Volume Perdagangan Historis - {saham_terpilih}")
-    fig_bar = px.bar(df_saham_filter, x='Date', y='Volume', template='plotly_white')
-    fig_bar.update_traces(marker_color='#529fcc')
-    st.plotly_chart(fig_bar, use_container_width=True, theme=None)
+    fig_bar = go.Figure(data=[
+        go.Bar(
+            x=df_saham_filter['Date'], 
+            y=df_saham_filter['Volume'], 
+            marker_color='#529fcc' 
+        )
+    ])
+    
+    fig_bar.update_layout(
+        xaxis_title="Tanggal",
+        yaxis_title="Volume"
+    )
+                     
+    # Tampilkan dengan theme=None
     st.plotly_chart(fig_bar, use_container_width=True)
+    
+    st.divider()
     
     # 1. Tampilan Risk vs Return (Untuk Semua Saham)
     st.subheader("1. Peta Risiko vs Keuntungan (Risk-Return Tradeoff)")
