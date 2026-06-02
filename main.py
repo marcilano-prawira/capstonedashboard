@@ -23,14 +23,14 @@ df_uang = load_data_keuangan()
 df_saham = load_data_saham()
 
 # SIDEBAR NAVIGASI
-st.sidebar.title("Dashboard Analysis")
+st.sidebar.title("Vestlytics (Dashboard Analisis dataset) ")
 pilihan_menu = st.sidebar.radio(
     "Pilih Halaman Analisis:",
     ("Beranda", "Profil Keuangan", "Saham LQ45", "Insight Terintegrasi")
 )
 
 st.sidebar.divider()
-st.sidebar.info("Sistem ini terhubung langsung dengan dataset Keuangan (3.000 users) dan pergerakan Saham LQ45.")
+st.sidebar.info("Sistem ini terhubung langsung dengan dataset Keuangan (3.000 users) dan pergerakan Saham LQ45 (2015-2025).")
 
 
 # KONTEN HALAMAN BERDASARKAN PILIHAN
