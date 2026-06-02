@@ -41,7 +41,7 @@ if pilihan_menu == "Beranda":
     
     Dashboard ini mengintegrasikan dua analisis utama:
     1. **Data Finansial Internal:** Membedah kondisi kesehatan keuangan pengguna (dummy data)dan mengelompokkan profil risiko berdasarkan K-Means Clustering.
-    2. **Data Pasar Saham (LQ45):** Menganalisis pergerakan saham LQ45 rentang tagun (2015-2025) di Indonesia sebagai rekomendasi investasi.
+    2. **Data Pasar Saham (LQ45):** Menganalisis pergerakan saham LQ45 rentang tahun (2015-2025) di Indonesia sebagai rekomendasi investasi.
     
     *Silakan klik menu di sebelah kiri untuk mulai menjelajahi hasil analisiskami.*
     """)
@@ -169,7 +169,7 @@ elif pilihan_menu == "Saham LQ45":
     
     # Menggunakan Graph Objects plotly untuk menggabungkan banyak garis
     fig_line = go.Figure()
-    fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['Close'], mode='lines', name='Close Price', line=dict(color='black', width=2)))
+    fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['Close'], mode='lines', name='Close Price', line=dict(color='white', width=2)))
     fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['MA20'], mode='lines', name='MA 20 (Jangka Pendek)', line=dict(color='blue', width=1.5)))
     fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['MA30'], mode='lines', name='MA 50 (Jangka Menengah)', line=dict(color='red', width=1.5)))
     
