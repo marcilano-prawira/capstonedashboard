@@ -82,7 +82,7 @@ elif pilihan_menu == "Profil Keuangan":
     st.markdown("Dari total 3000 user (dataset), mayoritas berada di cluster 'Belum Siap Investasi' dengan proporsi 41,8%, diikuti oleh 'Siap Investasi (Konservatif)' 30,3%, dan sisanya 'Siap Investasi (Agresif)' 27,9%. Pembagiajn cluster tersebut adalah dari hasil algoritma K-Means yang mempertimbangkan fitur-fitur finansial utama seperti skor dana darurat, nominal investasi, dan rasio utang terhadap pemasukan.") 
     st.divider()
 
-    # 2. KARAKTERISTIK FINANSIAL PENGGANTI BOXPLOT (KANAN)
+    # 2. KARAKTERISTIK FINANSIAL 
     st.subheader("2. Karakteristik Utama Tiap Profil")
     st.write("Perbandingan rata-rata fitur penentu dari setiap kelompok.")
     
@@ -132,7 +132,7 @@ elif pilihan_menu == "Saham LQ45":
     
     # Filter interaktif untuk memilih Ticker Saham
     daftar_saham = sorted(df_saham['Ticker'].unique())
-    saham_terpilih = st.selectbox("Silakan Pilih Kode Saham di bawah iniuntuk Dianalisis:", daftar_saham)
+    saham_terpilih = st.selectbox("Silakan Pilih Kode Saham di bawah ini untuk Dianalisis:", daftar_saham)
     
     df_saham_filter = df_saham[df_saham['Ticker'] == saham_terpilih]
     
@@ -144,7 +144,10 @@ elif pilihan_menu == "Saham LQ45":
     
     st.subheader(f"Volume Perdagangan Historis - {saham_terpilih}")
     fig_bar = px.bar(df_saham_filter, x='Date', y='Volume', template='plotly_white')
+    fig_bar.update_traces(marker_color='#529fcc')
+    st.plotly_chart(fig_bar, use_container_width=True, theme=None)
     st.plotly_chart(fig_bar, use_container_width=True)
+    
     # 1. Tampilan Risk vs Return (Untuk Semua Saham)
     st.subheader("1. Peta Risiko vs Keuntungan (Risk-Return Tradeoff)")
     st.write("Memetakan seluruh saham LQ45 berdasarkan fluktuasi harga bulanan dan rata-rata keuntungan harian.")
@@ -169,7 +172,7 @@ elif pilihan_menu == "Saham LQ45":
     
     # Menggunakan Graph Objects plotly untuk menggabungkan banyak garis
     fig_line = go.Figure()
-    fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['Close'], mode='lines', name='Close Price', line=dict(color='white', width=2)))
+    fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['Close'], mode='lines', name='Close Price', line=dict(color='green', width=2)))
     fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['MA20'], mode='lines', name='MA 20 (Jangka Pendek)', line=dict(color='blue', width=1.5)))
     fig_line.add_trace(go.Scatter(x=df_saham_filter['Date'], y=df_saham_filter['MA30'], mode='lines', name='MA 50 (Jangka Menengah)', line=dict(color='red', width=1.5)))
     
@@ -187,7 +190,7 @@ elif pilihan_menu == "Insight Terintegrasi":
     
     st.divider()
     
-    # 2. DIAGNOSA KEUANGAN DENGAN BAHASA AWAM
+    # 2. DIAGNOSA KEUANGAN 
     st.markdown("Diagnosa Kesehatan Keuangan setiap Cluster")
     st.write("Berdasarkan data rata-rata profil 3000 user berikut adalah kondisi keuangan untuk setiap cluster:")
     
